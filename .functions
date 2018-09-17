@@ -107,3 +107,13 @@ run_on_prompt_command()
 }
 
 PROMPT_COMMAND="run_on_prompt_command"
+
+export_aws_creds(){ 
+  echo "AWS_ACCESS_KEY_ID: "
+  read KEY_ID
+  echo "AWS_SECRET_ACCESS_KEY: "
+  read ACCESS_KEY
+
+  export AWS_ACCESS_KEY_ID="${KEY_ID}"
+  export AWS_SECRET_ACCESS_KEY="${ACCESS_KEY}"
+}
