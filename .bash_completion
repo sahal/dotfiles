@@ -1,0 +1,18 @@
+_complete_ssh_hosts () {
+        COMPREPLY=()
+        cur="${COMP_WORDS[COMP_CWORD]}"
+        #comp_ssh_hosts=$(awk '{split($1,aliases,","); if (aliases[1] !~ /^\[/) print aliases[1]}' ~/.ssh/known_hosts)
+        comp_ssh_hosts=$(cut -f 1 -d ' ' < ~/.ssh/known_hosts | \
+                        sed -e s/,.*//g | \
+                        grep -v ^# | \
+                        uniq | \
+                        grep -v "\[" ;
+                        grep "^Host " < ~/.ssh/config | \
+                        awk '{print $2}')
+        COMPREPLY=( $(compgen -W "${comp_ssh_hosts}" -- $cur))
+        return 0
+}
+complete -F _complete_ssh_hosts ssh sftp
+complete -C '/usr/local/bin/aws_completer' aws
+
+#$(pyenv root)/completions/pyenv.bash
