@@ -1,0 +1,16 @@
+# HISTORY
+export HISTSIZE=5000
+export HISTFILESIZE=10000
+export HISTCONTROL=ignoreboth
+export HISTTIMEFORMAT="%d/%m/%y %T "
+
+# ansible
+export ANSIBLE_VAULT_PASSWORD_FILE="$HOME/.vault_pass.txt"
+export ANSIBLE_CONFIG="$HOME/.ansible/ansible.cfg"
+export ANSIBLE_NOCOWS=1
+
+export AWS_SDK_LOAD_CONFIG=true
+export VISUAL="vim"
+export EDITOR="$VISUAL"
+export GPG_AGENT_INFO=""
+

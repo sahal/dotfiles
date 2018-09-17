@@ -1,0 +1,2 @@
+# Bash prompt
+export PS1="\u@macsauce[\w]$ \[$(tput sgr0)\]"
