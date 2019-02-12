@@ -15,8 +15,8 @@ set tabstop=2
 set expandtab
 set diffopt+=iwhite
 
-set foldmethod=indent
-set foldnestmax=1
+"set foldmethod=indent
+"set foldnestmax=1
 " set nofoldenable
 
 set tw=79
@@ -67,6 +67,7 @@ Plugin 'zefei/vim-colortuner'
 "Plugin 'https://github.com/godlygeek/tabular.git'
 Plugin 'vim-airline/vim-airline'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'jlanzarotta/bufexplorer'
 
 
 
@@ -109,3 +110,13 @@ augroup CursorLine
   au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
   au WinLeave * setlocal nocursorline
 augroup END
+
+" http://learnvimscriptthehardway.stevelosh.com/chapters/06.html
+let mapleader = ','
+
+" Buffers - explore/next/previous: Alt-F12, F12, Shift-F12.
+" http://vim.wikia.com/wiki/Easier_buffer_switching
+nnoremap <silent> <leader>b :BufExplorer<CR>
+nnoremap <silent> <leader>n :bn<CR>
+nnoremap <silent> <leader>p :bp<CR>
+
