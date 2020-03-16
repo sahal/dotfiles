@@ -1,4 +1,8 @@
 shopt -s expand_aliases
+# Short of learning how to actually configure OSX, here's a hacky way to use
+# GNU manpages for programs that are GNU ones, and fallback to OSX manpages otherwise
+# https://gist.github.com/quickshiftin/9130153
+alias man='_() { echo $1; man -M $(brew --prefix)/opt/coreutils/libexec/gnuman $1 1>/dev/null 2>&1;  if [ "$?" -eq 0 ]; then man -M $(brew --prefix)/opt/coreutils/libexec/gnuman $1; else man $1; fi }; _'
 # centos has ruined me
 alias ll='ls -alh'
 # https://superuser.com/questions/99128/removing-the-escape-characters-from-gnu-screens-screenlog-n
@@ -15,8 +19,5 @@ alias less='less -R'
 alias vagrant_oops="vagrant snapshot restore --no-provision default initial"
 alias lint-jenkinsfile="ssh lint-jenkinsfile declarative-linter <"
 alias python="python2.7"
-# aws-vault related
-alias aws-alexproduction="aws-vault exec alexproduction -- "
-alias aws-alexdev="aws-vault exec alexdev -- "
-alias aws-jellyvision="aws-vault exec jellyvision -- "
-
+alias aws-mfa="aws-mfa --profile "
+alias asciicast2gif="docker run --rm -v $PWD:/data asciinema/asciicast2gif"

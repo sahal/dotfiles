@@ -2,6 +2,10 @@ function gitdiff {
   find "$1" -type f -exec git diff "$2" "$3" -- "{}" \;
 }
 
+function mdview {
+  # https://gist.github.com/techgaun/5a33e475bed149a9b355
+  pandoc -f gfm "$@" | lynx -stdin -dump | less
+}
 
 function backup_home {
 
@@ -108,7 +112,7 @@ run_on_prompt_command()
 
 PROMPT_COMMAND="run_on_prompt_command"
 
-export_aws_creds(){ 
+export_aws_creds(){
   echo "AWS_ACCESS_KEY_ID: "
   read KEY_ID
   echo "AWS_SECRET_ACCESS_KEY: "
@@ -116,4 +120,12 @@ export_aws_creds(){
 
   export AWS_ACCESS_KEY_ID="${KEY_ID}"
   export AWS_SECRET_ACCESS_KEY="${ACCESS_KEY}"
+}
+
+function vimp () {
+  vim -p $(find -type f -name "*.$@" -print)
+}
+
+function porigin() {
+  git push origin `git rev-parse --abbrev-ref HEAD`
 }

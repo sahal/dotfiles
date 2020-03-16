@@ -7,3 +7,7 @@ defscrollback 10000
 scrollback 10000
 
 altscreen on
+startup_message off
+
+# .txt so i can easily open it in a text editor via Finder
+bufferfile /tmp/screen-exchange.txt

@@ -15,7 +15,7 @@ set tabstop=2
 set expandtab
 set diffopt+=iwhite
 
-"set foldmethod=indent
+set foldmethod=indent
 "set foldnestmax=1
 " set nofoldenable
 
@@ -68,6 +68,7 @@ Plugin 'zefei/vim-colortuner'
 Plugin 'vim-airline/vim-airline'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'jlanzarotta/bufexplorer'
+Plugin 'michaeljsmith/vim-indent-object'
 
 
 
@@ -116,7 +117,8 @@ let mapleader = ','
 
 " Buffers - explore/next/previous: Alt-F12, F12, Shift-F12.
 " http://vim.wikia.com/wiki/Easier_buffer_switching
-nnoremap <silent> <leader>b :BufExplorer<CR>
-nnoremap <silent> <leader>n :bn<CR>
-nnoremap <silent> <leader>p :bp<CR>
+nnoremap <silent> <leader>l :bn<CR>
+nnoremap <silent> <leader>h :bp<CR>
 
+"nnoremap <silent> <leader>x :execute 'new | 0read ! interpreter' expand('%')<CR>
+au BufNewFile,BufRead Jenkinsfile setf groovy

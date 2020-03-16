@@ -13,6 +13,4 @@ _complete_ssh_hosts () {
         return 0
 }
 complete -F _complete_ssh_hosts ssh sftp
-complete -C '/usr/local/bin/aws_completer' aws
-
-#$(pyenv root)/completions/pyenv.bash
+complete -C "$HOME/.pyenv/shims/aws_completer" aws
