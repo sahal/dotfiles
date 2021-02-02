@@ -18,6 +18,6 @@ alias striphtml="perl -0777 -pe 's/<[^<]+?>//g' "$@""
 alias less='less -R'
 alias vagrant_oops="vagrant snapshot restore --no-provision default initial"
 alias lint-jenkinsfile="ssh lint-jenkinsfile declarative-linter <"
-alias python="python2.7"
+#alias python="python2.7"
 alias aws-mfa="aws-mfa --profile "
 alias asciicast2gif="docker run --rm -v $PWD:/data asciinema/asciicast2gif"

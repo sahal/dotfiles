@@ -11,3 +11,7 @@ startup_message off
 
 # .txt so i can easily open it in a text editor via Finder
 bufferfile /tmp/screen-exchange.txt
+
+attrcolor b ".I"
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E38;5;%dm'
+defbce "on"

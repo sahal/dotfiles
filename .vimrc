@@ -69,6 +69,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'michaeljsmith/vim-indent-object'
+Plugin 'martinda/Jenkinsfile-vim-syntax'
 
 
 
@@ -122,3 +123,9 @@ nnoremap <silent> <leader>h :bp<CR>
 
 "nnoremap <silent> <leader>x :execute 'new | 0read ! interpreter' expand('%')<CR>
 au BufNewFile,BufRead Jenkinsfile setf groovy
+
+" Kyle says relative numbers are good
+set relativenumber
+
+" Give me colors!
+set t_Co=256
