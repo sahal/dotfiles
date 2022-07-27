@@ -9,9 +9,20 @@ scrollback 10000
 altscreen on
 startup_message off
 
-# .txt so i can easily open it in a text editor via Finder
+# .txt so i can easily open it in a text editor via a File Manager
 bufferfile /tmp/screen-exchange.txt
 
+
+# I find my self only locking screen on accident...
+# https://www.pantz.org/software/screen/disabling_gnu_screen_lock_screen.html
+bind x
+bind ^x
+
+# from: https://web.archive.org/web/20200429154902/http://robotsrule.us/vim/
 attrcolor b ".I"
 termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E38;5;%dm'
 defbce "on"
+
+# Newer versions of screen will allow you to use "truecolor" mode
+# https://gist.github.com/XVilka/8346728
+#truecolor on
