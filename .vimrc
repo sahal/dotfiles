@@ -120,6 +120,7 @@ let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 let g:ale_lint_on_text_changed = 'never'
 
+" https://gist.github.com/sahal/d42b82a9f4aca488b0d330710800220d
 if &diff
     colorscheme mycolorscheme
 endif
