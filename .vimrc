@@ -28,6 +28,7 @@ set nolist  " list disables linebreak
 set textwidth=0
 set wrapmargin=0
 
+" https://stackoverflow.com/a/26209681
 highlight nonascii guibg=Red ctermbg=1 term=standout
 au BufReadPost * syntax match nonascii "[^\u0000-\u007F]"
 
@@ -35,14 +36,8 @@ au BufReadPost * syntax match nonascii "[^\u0000-\u007F]"
  nnoremap p p=`]<C-o>
  nnoremap P P=`]<C-o>
 
-if &diff
-  colorscheme slate
-endif
-
-
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
 
 autocmd BufWritePre * :%s/\s\+$//e
 "|             |                  | |
@@ -51,6 +46,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 "|             This command will run immediately after you save a file
 "Creates a new autocommand
 
+" TODO: USE SOMTHING MORE MODERN THAN VUNDLE
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -74,25 +70,6 @@ Plugin 'morhetz/gruvbox'
 Plugin 'Yggdroot/indentLine'
 Plugin 'dense-analysis/ale'
 Plugin 'tpope/vim-fugitive'
-
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-"Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-"Plugin 'L9'
-" Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
-"Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-"Plugin 'ascenator/L9', {'name': 'newL9'}
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
