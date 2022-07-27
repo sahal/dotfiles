@@ -70,7 +70,10 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'martinda/Jenkinsfile-vim-syntax'
-
+Plugin 'morhetz/gruvbox'
+Plugin 'Yggdroot/indentLine'
+Plugin 'dense-analysis/ale'
+Plugin 'tpope/vim-fugitive'
 
 
 " The following are examples of different formats supported.
@@ -129,3 +132,17 @@ set relativenumber
 
 " Give me colors!
 set t_Co=256
+
+autocmd vimenter * ++nested colorscheme gruvbox
+
+" https://www.arthurkoziel.com/setting-up-vim-for-yaml/
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+let g:indentLine_char = '⦙'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+let g:ale_lint_on_text_changed = 'never'
+
+if &diff
+    colorscheme mycolorscheme
+endif
