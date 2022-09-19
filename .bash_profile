@@ -11,3 +11,6 @@ unset file;
 
 # vimode in bash
 set -o vi
+
+TERM="xterm-color"
+export TERM
