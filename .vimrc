@@ -17,10 +17,10 @@ set diffopt+=iwhite
 
 set foldmethod=indent
 "set foldnestmax=1
-" set nofoldenable
+"set nofoldenable
 
 set tw=79
-set colorcolumn=-2
+set colorcolumn=80
 
 set wrap
 set linebreak
@@ -46,45 +46,35 @@ autocmd BufWritePre * :%s/\s\+$//e
 "|             This command will run immediately after you save a file
 "Creates a new autocommand
 
-" TODO: USE SOMTHING MORE MODERN THAN VUNDLE
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" Install vim-plug if we don't already have it
+" Not sure I feel comfortable with this part
+""if empty(glob('~/.vim/autoload/plug.vim'))
+""silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+""		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+""autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+""endif
+" Use this instead: https://github.com/junegunn/vim-plug#unix
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
-Plugin 'https://github.com/kien/ctrlp.vim.git'
-Plugin 'https://github.com/AndrewRadev/linediff.vim.git'
-Plugin 'scrooloose/nerdtree'
-Plugin 'zefei/vim-colortuner'
-"Plugin 'https://github.com/godlygeek/tabular.git'
-Plugin 'vim-airline/vim-airline'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'michaeljsmith/vim-indent-object'
-Plugin 'martinda/Jenkinsfile-vim-syntax'
-Plugin 'morhetz/gruvbox'
-Plugin 'Yggdroot/indentLine'
-Plugin 'dense-analysis/ale'
-Plugin 'tpope/vim-fugitive'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'https://github.com/AndrewRadev/linediff.vim.git'
+Plug 'scrooloose/nerdtree'
+Plug 'zefei/vim-colortuner'
+Plug 'vim-airline/vim-airline'
+Plug 'junegunn/vim-easy-align'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'martinda/Jenkinsfile-vim-syntax'
+Plug 'morhetz/gruvbox'
+Plug 'Yggdroot/indentLine'
+Plug 'dense-analysis/ale'
+Plug 'tpope/vim-fugitive'
+Plug 'thiagoalessio/rainbow_levels.vim'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()
+
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 
 " http://vim.wikia.com/wiki/Highlight_current_line
 augroup CursorLine
@@ -110,7 +100,7 @@ set relativenumber
 " Give me colors!
 set t_Co=256
 
-autocmd vimenter * ++nested colorscheme gruvbox
+autocmd VimEnter * ++nested colorscheme gruvbox
 
 " https://www.arthurkoziel.com/setting-up-vim-for-yaml/
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
@@ -122,5 +112,9 @@ let g:ale_lint_on_text_changed = 'never'
 
 " https://gist.github.com/sahal/d42b82a9f4aca488b0d330710800220d
 if &diff
-    colorscheme mycolorscheme
+  colorscheme mycolorscheme
 endif
+
+" https://github.com/thiagoalessio/rainbow_levels.vim
+map <leader>R :RainbowLevelsToggle<cr>
+
