@@ -1,0 +1,14 @@
+#https://stackoverflow.com/a/48185201
+
+case :$PATH: in # notice colons around the value
+  *:$HOME/bin/:*) ;; # do nothing, it's there
+  *) PATH=$PATH:$HOME/bin/ >&2;;
+esac
+
+case :$PATH: in
+  *:$HOME/.local/bin/:*) ;;
+  *) PATH=$PATH:$HOME/.local/bin/ >&2;;
+esac
+
+export PATH
+
