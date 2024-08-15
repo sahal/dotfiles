@@ -26,3 +26,4 @@ defbce "on"
 # Newer versions of screen will allow you to use "truecolor" mode
 # https://gist.github.com/XVilka/8346728
 #truecolor on
+term "screen-256color"

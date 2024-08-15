@@ -16,5 +16,12 @@ unset file;
 # vimode in bash
 set -o vi
 
-TERM="xterm-color"
+# https://superuser.com/a/1559686
+# https://neovim.io/doc/user/term.html
+# $ mkdir $HOME/.terminfo
+# $ cd $HOME/.terminfo
+# $ curl -LO https://invisible-island.net/datafiles/current/terminfo.src.gz
+# $ gunzip terminfo.src.gz
+# $ tic -x terminfo.src
+TERM="xterm-256color"
 export TERM
