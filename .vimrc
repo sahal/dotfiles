@@ -120,7 +120,8 @@ Plug 'Yggdroot/indentLine'
 Plug 'dense-analysis/ale'
 Plug 'tpope/vim-fugitive'
 "Plug 'thiagoalessio/rainbow_levels.vim'
-Plug 'vim-vdebug/vdebug'
+"Plug 'vim-vdebug/vdebug'
+"Plug 'mfussenegger/nvim-dap'
 
 call plug#end()
 
@@ -156,6 +157,7 @@ let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 let g:ale_lint_on_text_changed = 'never'
 
+autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 " https://gist.github.com/sahal/d42b82a9f4aca488b0d330710800220d
 if &diff
   colorscheme mycolorscheme
@@ -193,3 +195,12 @@ let g:airline_symbols.readonly = ''
 
 " some issue in vim-airline when displaying some symbols 🤷🏾
 let g:airline_symbols.colnr = ' '
+
+"https://vi.stackexchange.com/a/19974
+let g:indentLine_setConceal = 2
+" default ''.
+" n for Normal mode
+" v for Visual mode
+" i for Insert mode
+" c for Command line editing, for 'incsearch'
+let g:indentLine_concealcursor = ""

@@ -21,3 +21,5 @@ alias lint-jenkinsfile="ssh lint-jenkinsfile declarative-linter <"
 #alias python="python2.7"
 alias aws-mfa="aws-mfa --profile "
 alias asciicast2gif="docker run --rm -v $PWD:/data asciinema/asciicast2gif"
+#https://stackoverflow.com/a/42005235
+alias vimdiff='vimdiff +"windo set wrap"'
